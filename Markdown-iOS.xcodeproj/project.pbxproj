@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2855ECB3C49BC10C64898D98 /* Pods_Markdown_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B79C752370638CBEBD42CC78 /* Pods_Markdown_iOSUITests.framework */; };
 		784261982D735AC2F76ABA76 /* Pods_Markdown_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B502D48878A16B7623B1F1B /* Pods_Markdown_iOSTests.framework */; };
+		8814FAB52201AB9900646CD1 /* MarkdownEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814FAB42201AB9900646CD1 /* MarkdownEditorView.swift */; };
+		8814FAB72201AE3B00646CD1 /* MarkdownRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814FAB62201AE3B00646CD1 /* MarkdownRenderer.swift */; };
 		88637F91220149180045FBA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88637F90220149180045FBA9 /* AppDelegate.swift */; };
 		88637F93220149180045FBA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88637F92220149180045FBA9 /* ViewController.swift */; };
 		88637F96220149180045FBA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88637F94220149180045FBA9 /* Main.storyboard */; };
@@ -16,6 +18,14 @@
 		88637F9B2201491A0045FBA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88637F992201491A0045FBA9 /* LaunchScreen.storyboard */; };
 		88637FA62201491A0045FBA9 /* Markdown_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88637FA52201491A0045FBA9 /* Markdown_iOSTests.swift */; };
 		88637FB12201491A0045FBA9 /* Markdown_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88637FB02201491A0045FBA9 /* Markdown_iOSUITests.swift */; };
+		88637FC2220152260045FBA9 /* MarkdownSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88637FC1220152260045FBA9 /* MarkdownSyntax.swift */; };
+		88637FC4220153CF0045FBA9 /* MarkdownStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88637FC3220153CF0045FBA9 /* MarkdownStyle.swift */; };
+		88637FC6220153F30045FBA9 /* MarkdownTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88637FC5220153F30045FBA9 /* MarkdownTransformer.swift */; };
+		88637FC922015B2B0045FBA9 /* DefaultMarkdownStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88637FC822015B2B0045FBA9 /* DefaultMarkdownStyle.swift */; };
+		88637FCB22015C6F0045FBA9 /* DefaultHeader1Transformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88637FCA22015C6F0045FBA9 /* DefaultHeader1Transformer.swift */; };
+		88637FCD22015CAB0045FBA9 /* DefaultHeader2Transformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88637FCC22015CAB0045FBA9 /* DefaultHeader2Transformer.swift */; };
+		88637FCF22015D7E0045FBA9 /* DefaultTransformerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88637FCE22015D7E0045FBA9 /* DefaultTransformerFactory.swift */; };
+		88637FD122015DA30045FBA9 /* MarkdownTransformerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88637FD022015DA30045FBA9 /* MarkdownTransformerFactory.swift */; };
 		F0D5E3E6BDAD56AA09C9375D /* Pods_Markdown_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C753AD34DEB07B27614F2CC /* Pods_Markdown_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +51,8 @@
 		0B502D48878A16B7623B1F1B /* Pods_Markdown_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Markdown_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E733CAC01E00784B1CAC525 /* Pods-Markdown-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Markdown-iOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Markdown-iOSTests/Pods-Markdown-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		23052FD992A87A19A04D5AFF /* Pods-Markdown-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Markdown-iOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Markdown-iOSTests/Pods-Markdown-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		8814FAB42201AB9900646CD1 /* MarkdownEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownEditorView.swift; sourceTree = "<group>"; };
+		8814FAB62201AE3B00646CD1 /* MarkdownRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownRenderer.swift; sourceTree = "<group>"; };
 		88637F8D220149180045FBA9 /* Markdown-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Markdown-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88637F90220149180045FBA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88637F92220149180045FBA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +66,14 @@
 		88637FAC2201491A0045FBA9 /* Markdown-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Markdown-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88637FB02201491A0045FBA9 /* Markdown_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Markdown_iOSUITests.swift; sourceTree = "<group>"; };
 		88637FB22201491A0045FBA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88637FC1220152260045FBA9 /* MarkdownSyntax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownSyntax.swift; sourceTree = "<group>"; };
+		88637FC3220153CF0045FBA9 /* MarkdownStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownStyle.swift; sourceTree = "<group>"; };
+		88637FC5220153F30045FBA9 /* MarkdownTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownTransformer.swift; sourceTree = "<group>"; };
+		88637FC822015B2B0045FBA9 /* DefaultMarkdownStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMarkdownStyle.swift; sourceTree = "<group>"; };
+		88637FCA22015C6F0045FBA9 /* DefaultHeader1Transformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultHeader1Transformer.swift; sourceTree = "<group>"; };
+		88637FCC22015CAB0045FBA9 /* DefaultHeader2Transformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultHeader2Transformer.swift; sourceTree = "<group>"; };
+		88637FCE22015D7E0045FBA9 /* DefaultTransformerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTransformerFactory.swift; sourceTree = "<group>"; };
+		88637FD022015DA30045FBA9 /* MarkdownTransformerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownTransformerFactory.swift; sourceTree = "<group>"; };
 		96824E7046198498409E2AE4 /* Pods-Markdown-iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Markdown-iOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Markdown-iOSUITests/Pods-Markdown-iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9C753AD34DEB07B27614F2CC /* Pods_Markdown_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Markdown_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B79C752370638CBEBD42CC78 /* Pods_Markdown_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Markdown_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +134,8 @@
 		88637F8F220149180045FBA9 /* Markdown-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				88637FC722015B0F0045FBA9 /* DefaultStyle */,
+				888602142201932200A6307C /* Markdown */,
 				88637F90220149180045FBA9 /* AppDelegate.swift */,
 				88637F92220149180045FBA9 /* ViewController.swift */,
 				88637F94220149180045FBA9 /* Main.storyboard */,
@@ -140,6 +162,30 @@
 				88637FB22201491A0045FBA9 /* Info.plist */,
 			);
 			path = "Markdown-iOSUITests";
+			sourceTree = "<group>";
+		};
+		88637FC722015B0F0045FBA9 /* DefaultStyle */ = {
+			isa = PBXGroup;
+			children = (
+				88637FC822015B2B0045FBA9 /* DefaultMarkdownStyle.swift */,
+				88637FCE22015D7E0045FBA9 /* DefaultTransformerFactory.swift */,
+				88637FCA22015C6F0045FBA9 /* DefaultHeader1Transformer.swift */,
+				88637FCC22015CAB0045FBA9 /* DefaultHeader2Transformer.swift */,
+			);
+			path = DefaultStyle;
+			sourceTree = "<group>";
+		};
+		888602142201932200A6307C /* Markdown */ = {
+			isa = PBXGroup;
+			children = (
+				8814FAB42201AB9900646CD1 /* MarkdownEditorView.swift */,
+				8814FAB62201AE3B00646CD1 /* MarkdownRenderer.swift */,
+				88637FC1220152260045FBA9 /* MarkdownSyntax.swift */,
+				88637FC3220153CF0045FBA9 /* MarkdownStyle.swift */,
+				88637FC5220153F30045FBA9 /* MarkdownTransformer.swift */,
+				88637FD022015DA30045FBA9 /* MarkdownTransformerFactory.swift */,
+			);
+			path = Markdown;
 			sourceTree = "<group>";
 		};
 		CEBF62ED1C4F2374E93C2F6C /* Pods */ = {
@@ -410,8 +456,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88637FC2220152260045FBA9 /* MarkdownSyntax.swift in Sources */,
+				88637FCB22015C6F0045FBA9 /* DefaultHeader1Transformer.swift in Sources */,
 				88637F93220149180045FBA9 /* ViewController.swift in Sources */,
+				88637FC922015B2B0045FBA9 /* DefaultMarkdownStyle.swift in Sources */,
+				8814FAB52201AB9900646CD1 /* MarkdownEditorView.swift in Sources */,
+				88637FC4220153CF0045FBA9 /* MarkdownStyle.swift in Sources */,
+				88637FCD22015CAB0045FBA9 /* DefaultHeader2Transformer.swift in Sources */,
+				88637FD122015DA30045FBA9 /* MarkdownTransformerFactory.swift in Sources */,
 				88637F91220149180045FBA9 /* AppDelegate.swift in Sources */,
+				88637FC6220153F30045FBA9 /* MarkdownTransformer.swift in Sources */,
+				88637FCF22015D7E0045FBA9 /* DefaultTransformerFactory.swift in Sources */,
+				8814FAB72201AE3B00646CD1 /* MarkdownRenderer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

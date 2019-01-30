@@ -1,16 +1,15 @@
-//
-//  ViewController.swift
-//  Markdown-iOS
-//
-//  Created by Jimmy Lee on 2019/1/30.
-//  Copyright © 2019 Prime. All rights reserved.
-//
-
+import SnapKit
 import UIKit
 
 class ViewController: UIViewController {
+    private let editorView = MarkdownEditorView(renderer: MarkdownRenderer(style: DefaultMarkdownStyle()))
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        view.addSubview(editorView)
+        editorView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
     }
 }
