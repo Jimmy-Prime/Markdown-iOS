@@ -2,8 +2,8 @@ import Foundation
 
 struct MarkdownRenderer {
     var style: MarkdownStyle
-    private var blockTransformers: [BlockMarkdownTransformer]
-    private var inlineTransformers: [InlineMarkdownTransformer]
+    private var blockTransformers: [BlockTransformer]
+    private var inlineTransformers: [InlineTransformer]
 
     init(style: MarkdownStyle) {
         self.style = style

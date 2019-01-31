@@ -5,8 +5,8 @@ protocol MarkdownTransformerFactory {
 
     var style: MarkdownStyle { get }
 
-    func create(blockSyntax: BlockSyntax) -> BlockMarkdownTransformer
-    func create(inlineSyntax: InlineSyntax) -> InlineMarkdownTransformer
+    func create(blockSyntax: BlockSyntax) -> BlockTransformer
+    func create(inlineSyntax: InlineSyntax) -> InlineTransformer
 }
 
 class BaseMarkdownTransformerFactory: MarkdownTransformerFactory {
@@ -16,11 +16,11 @@ class BaseMarkdownTransformerFactory: MarkdownTransformerFactory {
         self.style = style
     }
 
-    func create(blockSyntax: BlockSyntax) -> BlockMarkdownTransformer {
+    func create(blockSyntax: BlockSyntax) -> BlockTransformer {
         fatalError("subclass should override create(blockSyntax:)")
     }
 
-    func create(inlineSyntax: InlineSyntax) -> InlineMarkdownTransformer {
+    func create(inlineSyntax: InlineSyntax) -> InlineTransformer {
         fatalError("subclass should override create(inlineSyntax:)")
     }
 }

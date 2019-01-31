@@ -7,12 +7,12 @@ protocol MarkdownTransformer {
     var style: MarkdownStyle { get }
 }
 
-protocol BlockMarkdownTransformer: MarkdownTransformer {
+protocol BlockTransformer: MarkdownTransformer {
     func isStringValid(_ string: String) -> Bool
     func attributedString(of string: String) -> NSAttributedString
 }
 
-protocol InlineMarkdownTransformer: MarkdownTransformer {
+protocol InlineTransformer: MarkdownTransformer {
     func attributedString(of string: NSAttributedString) -> NSAttributedString
 }
 
@@ -26,7 +26,7 @@ class BaseMarkdownTransformer: MarkdownTransformer {
     }
 }
 
-class BaseBlockMarkdownTransformer: BaseMarkdownTransformer, BlockMarkdownTransformer {
+class BaseBlockTransformer: BaseMarkdownTransformer, BlockTransformer {
     func isStringValid(_ string: String) -> Bool {
         guard let regex = try? NSRegularExpression(pattern: syntax.regexPattern) else {
             fatalError("Regex error: \(syntax.regexPattern)")
@@ -41,7 +41,7 @@ class BaseBlockMarkdownTransformer: BaseMarkdownTransformer, BlockMarkdownTransf
     }
 }
 
-class BaseInlineMarkdownTransformer: BaseMarkdownTransformer, InlineMarkdownTransformer {
+class BaseInlineTransformer: BaseMarkdownTransformer, InlineTransformer {
     func attributedString(of attrString: NSAttributedString) -> NSAttributedString {
         fatalError("subclass should override attributedString(of:)")
     }

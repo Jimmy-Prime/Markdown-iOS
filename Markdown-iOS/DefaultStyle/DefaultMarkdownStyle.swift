@@ -1,8 +1,8 @@
 import UIKit
 
 struct DefaultMarkdownStyle: MarkdownStyle {
-    var blockTransformers: [BlockMarkdownTransformer] {
-        var transformers = [BlockMarkdownTransformer]()
+    var blockTransformers: [BlockTransformer] {
+        var transformers = [BlockTransformer]()
         let factory = DefaultTransformerFactory(style: self)
         for blockSyntax in BlockSyntax.all {
             transformers.append(factory.create(blockSyntax: blockSyntax))
@@ -10,8 +10,8 @@ struct DefaultMarkdownStyle: MarkdownStyle {
         return transformers
     }
 
-    var inlineTransformers: [InlineMarkdownTransformer] {
-        var transformers = [InlineMarkdownTransformer]()
+    var inlineTransformers: [InlineTransformer] {
+        var transformers = [InlineTransformer]()
         let factory = DefaultTransformerFactory(style: self)
         for inlineSyntax in InlineSyntax.all {
             transformers.append(factory.create(inlineSyntax: inlineSyntax))
@@ -28,9 +28,9 @@ struct DefaultMarkdownStyle: MarkdownStyle {
 
     func attributes(of syntax: MarkdownSyntax) -> [NSAttributedString.Key: Any] {
         switch syntax {
-        case is Header1Syntax:
+        case is Heading1Syntax:
             return header1
-        case is Header2Syntax:
+        case is Heading2Syntax:
             return header2
         default: // looks like we just need attributes of BlockSyntax?
             fatalError("unknown syntax \(syntax)")

@@ -1,18 +1,18 @@
 import Foundation
 
 class DefaultTransformerFactory: BaseMarkdownTransformerFactory {
-    override func create(blockSyntax: BlockSyntax) -> BlockMarkdownTransformer {
+    override func create(blockSyntax: BlockSyntax) -> BlockTransformer {
         switch blockSyntax {
-        case is Header1Syntax:
-            return DefaultHeader1Transformer(syntax: blockSyntax, style: style)
-        case is Header2Syntax:
-            return DefaultHeader2Transformer(syntax: blockSyntax, style: style)
+        case is Heading1Syntax:
+            return DefaultHeading1Transformer(syntax: blockSyntax, style: style)
+        case is Heading2Syntax:
+            return DefaultHeading2Transformer(syntax: blockSyntax, style: style)
         default:
             fatalError("unknown block syntax \(blockSyntax)")
         }
     }
 
-    override func create(inlineSyntax: InlineSyntax) -> InlineMarkdownTransformer {
+    override func create(inlineSyntax: InlineSyntax) -> InlineTransformer {
         switch inlineSyntax {
         case is BoldSyntax:
             return DefaultBoldTransformer(syntax: inlineSyntax, style: style)

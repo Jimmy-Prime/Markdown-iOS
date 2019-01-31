@@ -1,6 +1,6 @@
 import UIKit
 
-class DefaultItalicTransformer: BaseInlineMarkdownTransformer {
+class DefaultItalicTransformer: BaseInlineTransformer {
     override func attributedString(of attrString: NSAttributedString) -> NSAttributedString {
         guard let regex = try? NSRegularExpression(pattern: syntax.regexPattern) else {
             fatalError("Regex error: \(syntax.regexPattern)")
