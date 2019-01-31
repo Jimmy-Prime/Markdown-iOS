@@ -20,7 +20,9 @@ struct MarkdownRenderer {
 
         for line in wholeText.components(separatedBy: .newlines) {
             let trimmedLine = line.trimmingCharacters(in: .whitespaces)
-            guard !trimmedLine.isEmpty else { continue }
+            guard !trimmedLine.isEmpty else {
+                continue
+            }
 
             attrWholeText.append(inlineTransformLine(blockTransformLine(trimmedLine)))
 

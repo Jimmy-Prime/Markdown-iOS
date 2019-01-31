@@ -32,7 +32,7 @@ struct DefaultMarkdownStyle: MarkdownStyle {
             return header1
         case is Header2Syntax:
             return header2
-        default:
+        default: // looks like we just need attributes of BlockSyntax?
             fatalError("unknown syntax \(syntax)")
         }
     }

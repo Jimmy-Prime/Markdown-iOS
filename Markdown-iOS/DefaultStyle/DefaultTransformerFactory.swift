@@ -16,6 +16,8 @@ class DefaultTransformerFactory: BaseMarkdownTransformerFactory {
         switch inlineSyntax {
         case is BoldSyntax:
             return DefaultBoldTransformer(syntax: inlineSyntax, style: style)
+        case is ItalicSyntax:
+            return DefaultItalicTransformer(syntax: inlineSyntax, style: style)
         default:
             fatalError("unknown inline syntax \(inlineSyntax)")
         }

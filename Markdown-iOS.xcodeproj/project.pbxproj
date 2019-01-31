@@ -12,6 +12,8 @@
 		8814FAB52201AB9900646CD1 /* MarkdownEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814FAB42201AB9900646CD1 /* MarkdownEditorView.swift */; };
 		8814FAB72201AE3B00646CD1 /* MarkdownRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814FAB62201AE3B00646CD1 /* MarkdownRenderer.swift */; };
 		8814FABB2202E08900646CD1 /* DefaultBoldTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814FABA2202E08900646CD1 /* DefaultBoldTransformer.swift */; };
+		8814FABD2202F39800646CD1 /* DefaultItalicTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814FABC2202F39800646CD1 /* DefaultItalicTransformer.swift */; };
+		8814FABF2202F46400646CD1 /* UIFont+MD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814FABE2202F46400646CD1 /* UIFont+MD.swift */; };
 		88637F91220149180045FBA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88637F90220149180045FBA9 /* AppDelegate.swift */; };
 		88637F93220149180045FBA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88637F92220149180045FBA9 /* ViewController.swift */; };
 		88637F96220149180045FBA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88637F94220149180045FBA9 /* Main.storyboard */; };
@@ -55,6 +57,8 @@
 		8814FAB42201AB9900646CD1 /* MarkdownEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownEditorView.swift; sourceTree = "<group>"; };
 		8814FAB62201AE3B00646CD1 /* MarkdownRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownRenderer.swift; sourceTree = "<group>"; };
 		8814FABA2202E08900646CD1 /* DefaultBoldTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBoldTransformer.swift; sourceTree = "<group>"; };
+		8814FABC2202F39800646CD1 /* DefaultItalicTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultItalicTransformer.swift; sourceTree = "<group>"; };
+		8814FABE2202F46400646CD1 /* UIFont+MD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+MD.swift"; sourceTree = "<group>"; };
 		88637F8D220149180045FBA9 /* Markdown-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Markdown-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88637F90220149180045FBA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88637F92220149180045FBA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +115,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8814FAC02202F60300646CD1 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8814FABE2202F46400646CD1 /* UIFont+MD.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		88637F84220149180045FBA9 = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +148,7 @@
 		88637F8F220149180045FBA9 /* Markdown-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				8814FAC02202F60300646CD1 /* Extension */,
 				88637FC722015B0F0045FBA9 /* DefaultStyle */,
 				888602142201932200A6307C /* Markdown */,
 				88637F90220149180045FBA9 /* AppDelegate.swift */,
@@ -174,6 +187,7 @@
 				88637FCA22015C6F0045FBA9 /* DefaultHeader1Transformer.swift */,
 				88637FCC22015CAB0045FBA9 /* DefaultHeader2Transformer.swift */,
 				8814FABA2202E08900646CD1 /* DefaultBoldTransformer.swift */,
+				8814FABC2202F39800646CD1 /* DefaultItalicTransformer.swift */,
 			);
 			path = DefaultStyle;
 			sourceTree = "<group>";
@@ -462,6 +476,7 @@
 				88637FC2220152260045FBA9 /* MarkdownSyntax.swift in Sources */,
 				88637FCB22015C6F0045FBA9 /* DefaultHeader1Transformer.swift in Sources */,
 				88637F93220149180045FBA9 /* ViewController.swift in Sources */,
+				8814FABD2202F39800646CD1 /* DefaultItalicTransformer.swift in Sources */,
 				88637FC922015B2B0045FBA9 /* DefaultMarkdownStyle.swift in Sources */,
 				8814FAB52201AB9900646CD1 /* MarkdownEditorView.swift in Sources */,
 				8814FABB2202E08900646CD1 /* DefaultBoldTransformer.swift in Sources */,
@@ -472,6 +487,7 @@
 				88637FC6220153F30045FBA9 /* MarkdownTransformer.swift in Sources */,
 				88637FCF22015D7E0045FBA9 /* DefaultTransformerFactory.swift in Sources */,
 				8814FAB72201AE3B00646CD1 /* MarkdownRenderer.swift in Sources */,
+				8814FABF2202F46400646CD1 /* UIFont+MD.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

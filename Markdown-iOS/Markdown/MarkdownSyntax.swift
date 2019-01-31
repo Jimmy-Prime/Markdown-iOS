@@ -18,7 +18,7 @@ class BlockSyntax: MarkdownSyntax {
 
 class InlineSyntax: MarkdownSyntax {
     class var all: [InlineSyntax] {
-        return [BoldSyntax()]
+        return [BoldSyntax(), ItalicSyntax()]
     }
 }
 
@@ -39,5 +39,11 @@ class Header2Syntax: BlockSyntax {
 class BoldSyntax: InlineSyntax {
     override var regexPattern: String {
         return "\\*\\*([^\\*]+)\\*\\*"
+    }
+}
+
+class ItalicSyntax: InlineSyntax {
+    override var regexPattern: String {
+        return "\\*([^\\*]+)\\*"
     }
 }
