@@ -11,6 +11,7 @@
 		784261982D735AC2F76ABA76 /* Pods_Markdown_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B502D48878A16B7623B1F1B /* Pods_Markdown_iOSTests.framework */; };
 		8814FAB52201AB9900646CD1 /* MarkdownEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814FAB42201AB9900646CD1 /* MarkdownEditorView.swift */; };
 		8814FAB72201AE3B00646CD1 /* MarkdownRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814FAB62201AE3B00646CD1 /* MarkdownRenderer.swift */; };
+		8814FABB2202E08900646CD1 /* DefaultBoldTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814FABA2202E08900646CD1 /* DefaultBoldTransformer.swift */; };
 		88637F91220149180045FBA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88637F90220149180045FBA9 /* AppDelegate.swift */; };
 		88637F93220149180045FBA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88637F92220149180045FBA9 /* ViewController.swift */; };
 		88637F96220149180045FBA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88637F94220149180045FBA9 /* Main.storyboard */; };
@@ -53,6 +54,7 @@
 		23052FD992A87A19A04D5AFF /* Pods-Markdown-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Markdown-iOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Markdown-iOSTests/Pods-Markdown-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		8814FAB42201AB9900646CD1 /* MarkdownEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownEditorView.swift; sourceTree = "<group>"; };
 		8814FAB62201AE3B00646CD1 /* MarkdownRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownRenderer.swift; sourceTree = "<group>"; };
+		8814FABA2202E08900646CD1 /* DefaultBoldTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBoldTransformer.swift; sourceTree = "<group>"; };
 		88637F8D220149180045FBA9 /* Markdown-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Markdown-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88637F90220149180045FBA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88637F92220149180045FBA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				88637FCE22015D7E0045FBA9 /* DefaultTransformerFactory.swift */,
 				88637FCA22015C6F0045FBA9 /* DefaultHeader1Transformer.swift */,
 				88637FCC22015CAB0045FBA9 /* DefaultHeader2Transformer.swift */,
+				8814FABA2202E08900646CD1 /* DefaultBoldTransformer.swift */,
 			);
 			path = DefaultStyle;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				88637F93220149180045FBA9 /* ViewController.swift in Sources */,
 				88637FC922015B2B0045FBA9 /* DefaultMarkdownStyle.swift in Sources */,
 				8814FAB52201AB9900646CD1 /* MarkdownEditorView.swift in Sources */,
+				8814FABB2202E08900646CD1 /* DefaultBoldTransformer.swift in Sources */,
 				88637FC4220153CF0045FBA9 /* MarkdownStyle.swift in Sources */,
 				88637FCD22015CAB0045FBA9 /* DefaultHeader2Transformer.swift in Sources */,
 				88637FD122015DA30045FBA9 /* MarkdownTransformerFactory.swift in Sources */,

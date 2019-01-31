@@ -1,6 +1,6 @@
 import Foundation
 
-class DefaultHeader1Transformer: BaseMarkdownTransformer {
+class DefaultHeader1Transformer: BaseBlockMarkdownTransformer {
     override func attributedString(of string: String) -> NSAttributedString {
         let startIndex = string.index(after: string.startIndex)
         let endIndex = string.endIndex

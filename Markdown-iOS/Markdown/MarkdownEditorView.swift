@@ -42,6 +42,7 @@ class MarkdownEditorView: UIView {
         textView.textColor = .white
 
         renderedTextView.isEditable = false
+        renderedTextView.font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
     }
 
     private func configConstraints() {
@@ -59,7 +60,6 @@ class MarkdownEditorView: UIView {
             make.width.equalToSuperview().multipliedBy(0.5)
         }
 
-        renderedTextView.isEditable = false
         renderedTextView.snp.makeConstraints { (make) in
             make.trailing.top.bottom.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.5)
@@ -74,6 +74,6 @@ class MarkdownEditorView: UIView {
 
 extension MarkdownEditorView: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        renderedTextView.attributedText = renderer.render(string: textView.text)
+        renderedTextView.attributedText = renderer.render(wholeText: textView.text)
     }
 }

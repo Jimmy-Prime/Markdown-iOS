@@ -70,3 +70,4 @@ fastlane/README.md
 
 # Custom output files
 archive/
+.DS_Store

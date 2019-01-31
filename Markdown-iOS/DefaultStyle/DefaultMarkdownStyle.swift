@@ -1,11 +1,20 @@
 import UIKit
 
 struct DefaultMarkdownStyle: MarkdownStyle {
-    var transformers: [MarkdownTransformer] {
-        var transformers = [MarkdownTransformer]()
+    var blockTransformers: [BlockMarkdownTransformer] {
+        var transformers = [BlockMarkdownTransformer]()
         let factory = DefaultTransformerFactory(style: self)
-        for syntax in MarkdownSyntax.allCases {
-            transformers.append(factory.create(syntax: syntax))
+        for blockSyntax in BlockSyntax.all {
+            transformers.append(factory.create(blockSyntax: blockSyntax))
+        }
+        return transformers
+    }
+
+    var inlineTransformers: [InlineMarkdownTransformer] {
+        var transformers = [InlineMarkdownTransformer]()
+        let factory = DefaultTransformerFactory(style: self)
+        for inlineSyntax in InlineSyntax.all {
+            transformers.append(factory.create(inlineSyntax: inlineSyntax))
         }
         return transformers
     }
@@ -19,10 +28,12 @@ struct DefaultMarkdownStyle: MarkdownStyle {
 
     func attributes(of syntax: MarkdownSyntax) -> [NSAttributedString.Key: Any] {
         switch syntax {
-        case .header1:
+        case is Header1Syntax:
             return header1
-        case .header2:
+        case is Header2Syntax:
             return header2
+        default:
+            fatalError("unknown syntax \(syntax)")
         }
     }
 

@@ -2,41 +2,52 @@ import Foundation
 
 struct MarkdownRenderer {
     var style: MarkdownStyle
-    private var transformers: [MarkdownTransformer]
+    private var blockTransformers: [BlockMarkdownTransformer]
+    private var inlineTransformers: [InlineMarkdownTransformer]
 
     init(style: MarkdownStyle) {
         self.style = style
-        transformers = style.transformers
+        blockTransformers = style.blockTransformers
+        inlineTransformers = style.inlineTransformers
     }
 
-    func render(string: String?) -> NSAttributedString? {
-        guard let string = string else {
+    func render(wholeText: String?) -> NSAttributedString? {
+        guard let wholeText = wholeText else {
             return nil
         }
 
-        let attrString = NSMutableAttributedString()
+        let attrWholeText = NSMutableAttributedString()
 
-        for line in string.components(separatedBy: .newlines) {
+        for line in wholeText.components(separatedBy: .newlines) {
             let trimmedLine = line.trimmingCharacters(in: .whitespaces)
             guard !trimmedLine.isEmpty else { continue }
 
-            var handled = false
+            attrWholeText.append(inlineTransformLine(blockTransformLine(trimmedLine)))
 
-            for transformer in transformers {
-                if transformer.isStringValid(trimmedLine) {
-                    attrString.append(transformer.attributedString(of: trimmedLine))
-                    handled = true
-                    break
-                }
-            }
-
-            if !handled {
-                attrString.append(NSAttributedString(string: trimmedLine))
-            }
-
-            attrString.append(NSAttributedString(string: "\n\n"))
+            attrWholeText.append(NSAttributedString(string: "\n\n"))
         }
 
-        return attrString
+        return attrWholeText
+    }
+
+    private func blockTransformLine(_ line: String) -> NSAttributedString {
+        var attrLine: NSAttributedString?
+
+        for transformer in blockTransformers {
+            if transformer.isStringValid(line) {
+                attrLine = transformer.attributedString(of: line)
+                break
+            }
+        }
+
+        return attrLine ?? NSAttributedString(string: line)
+    }
+
+    private func inlineTransformLine(_ attrLine: NSAttributedString) -> NSAttributedString {
+        var resultLine = attrLine
+        for transformer in inlineTransformers {
+            resultLine = transformer.attributedString(of: resultLine)
+        }
+        return resultLine
     }
 }
