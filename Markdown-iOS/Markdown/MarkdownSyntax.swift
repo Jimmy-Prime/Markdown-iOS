@@ -18,7 +18,7 @@ class BlockSyntax: MarkdownSyntax {
 
 class InlineSyntax: MarkdownSyntax {
     class var all: [InlineSyntax] {
-        return [BoldSyntax(), ItalicSyntax()]
+        return [BoldSyntax(), ItalicSyntax()] // order matters
     }
 }
 
