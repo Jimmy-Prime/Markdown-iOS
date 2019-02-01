@@ -15,6 +15,7 @@
 		8814FABD2202F39800646CD1 /* DefaultItalicTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814FABC2202F39800646CD1 /* DefaultItalicTransformer.swift */; };
 		8814FABF2202F46400646CD1 /* UIFont+MD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814FABE2202F46400646CD1 /* UIFont+MD.swift */; };
 		8814FAC2220420C800646CD1 /* MarkdownEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814FAC1220420C800646CD1 /* MarkdownEditorViewController.swift */; };
+		8814FAC4220432E100646CD1 /* PDFPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814FAC3220432E000646CD1 /* PDFPrinter.swift */; };
 		88637F91220149180045FBA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88637F90220149180045FBA9 /* AppDelegate.swift */; };
 		88637F982201491A0045FBA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88637F972201491A0045FBA9 /* Assets.xcassets */; };
 		88637F9B2201491A0045FBA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88637F992201491A0045FBA9 /* LaunchScreen.storyboard */; };
@@ -59,6 +60,7 @@
 		8814FABC2202F39800646CD1 /* DefaultItalicTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultItalicTransformer.swift; sourceTree = "<group>"; };
 		8814FABE2202F46400646CD1 /* UIFont+MD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+MD.swift"; sourceTree = "<group>"; };
 		8814FAC1220420C800646CD1 /* MarkdownEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownEditorViewController.swift; sourceTree = "<group>"; };
+		8814FAC3220432E000646CD1 /* PDFPrinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPrinter.swift; sourceTree = "<group>"; };
 		88637F8D220149180045FBA9 /* Markdown-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Markdown-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88637F90220149180045FBA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88637F972201491A0045FBA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				8814FAC02202F60300646CD1 /* Extension */,
 				88637FC722015B0F0045FBA9 /* DefaultStyle */,
 				888602142201932200A6307C /* Markdown */,
+				8814FAC3220432E000646CD1 /* PDFPrinter.swift */,
 				88637F90220149180045FBA9 /* AppDelegate.swift */,
 				88637F972201491A0045FBA9 /* Assets.xcassets */,
 				88637F992201491A0045FBA9 /* LaunchScreen.storyboard */,
@@ -478,6 +481,7 @@
 				88637FC4220153CF0045FBA9 /* MarkdownStyle.swift in Sources */,
 				88637FCD22015CAB0045FBA9 /* DefaultHeading2Transformer.swift in Sources */,
 				88637FD122015DA30045FBA9 /* MarkdownTransformerFactory.swift in Sources */,
+				8814FAC4220432E100646CD1 /* PDFPrinter.swift in Sources */,
 				88637F91220149180045FBA9 /* AppDelegate.swift in Sources */,
 				88637FC6220153F30045FBA9 /* MarkdownTransformer.swift in Sources */,
 				88637FCF22015D7E0045FBA9 /* DefaultTransformerFactory.swift in Sources */,

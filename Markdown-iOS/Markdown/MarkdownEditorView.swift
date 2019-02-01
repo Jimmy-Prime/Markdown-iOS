@@ -10,6 +10,10 @@ class MarkdownEditorView: UIView {
 
     private let renderer: MarkdownRenderer
 
+    var renderedText: NSAttributedString {
+        return renderedTextView.attributedText ?? NSAttributedString()
+    }
+
     init(renderer: MarkdownRenderer) {
         leadingBackgroundMask = UIView()
         safeAreaContainer = UIView()
