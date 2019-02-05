@@ -12,7 +12,14 @@ class MarkdownSyntax: RegularExpressionExpressible {
 
 class BlockSyntax: MarkdownSyntax {
     class var all: [BlockSyntax] {
-        return [Heading1Syntax(), Heading2Syntax()]
+        return [
+            Heading1Syntax(),
+            Heading2Syntax(),
+            Heading3Syntax(),
+            Heading4Syntax(),
+            Heading5Syntax(),
+            Heading6Syntax()
+        ]
     }
 }
 
@@ -26,15 +33,41 @@ class InlineSyntax: MarkdownSyntax {
 
 class Heading1Syntax: BlockSyntax {
     override var regexPattern: String {
-        return "^#[^#](.*)"
+        return Consts.headingSyntax(1)
     }
 }
 
 class Heading2Syntax: BlockSyntax {
     override var regexPattern: String {
-        return "^##[^#](.*)"
+        return Consts.headingSyntax(2)
     }
 }
+
+class Heading3Syntax: BlockSyntax {
+    override var regexPattern: String {
+        return Consts.headingSyntax(3)
+    }
+}
+
+class Heading4Syntax: BlockSyntax {
+    override var regexPattern: String {
+        return Consts.headingSyntax(4)
+    }
+}
+
+class Heading5Syntax: BlockSyntax {
+    override var regexPattern: String {
+        return Consts.headingSyntax(5)
+    }
+}
+
+class Heading6Syntax: BlockSyntax {
+    override var regexPattern: String {
+        return Consts.headingSyntax(6)
+    }
+}
+
+// MARK: - Inline Syntax
 
 class BoldSyntax: InlineSyntax {
     override var regexPattern: String {

@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2855ECB3C49BC10C64898D98 /* Pods_Markdown_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B79C752370638CBEBD42CC78 /* Pods_Markdown_iOSUITests.framework */; };
+		4BC44B8C220923ED002D1B8B /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC44B8B220923ED002D1B8B /* Consts.swift */; };
+		4BC44B8E220925DB002D1B8B /* DefaultHeading3Transformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC44B8D220925DB002D1B8B /* DefaultHeading3Transformer.swift */; };
+		4BC44B9022092691002D1B8B /* DefaultHeading4Transformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC44B8F22092691002D1B8B /* DefaultHeading4Transformer.swift */; };
+		4BC44B92220926AF002D1B8B /* DefaultHeading5Transformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC44B91220926AF002D1B8B /* DefaultHeading5Transformer.swift */; };
+		4BC44B94220926CA002D1B8B /* DefaultHeading6Transformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC44B93220926CA002D1B8B /* DefaultHeading6Transformer.swift */; };
 		784261982D735AC2F76ABA76 /* Pods_Markdown_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B502D48878A16B7623B1F1B /* Pods_Markdown_iOSTests.framework */; };
 		8814FAB52201AB9900646CD1 /* MarkdownEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814FAB42201AB9900646CD1 /* MarkdownEditorView.swift */; };
 		8814FAB72201AE3B00646CD1 /* MarkdownRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814FAB62201AE3B00646CD1 /* MarkdownRenderer.swift */; };
@@ -54,6 +59,11 @@
 		0B502D48878A16B7623B1F1B /* Pods_Markdown_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Markdown_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E733CAC01E00784B1CAC525 /* Pods-Markdown-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Markdown-iOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Markdown-iOSTests/Pods-Markdown-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		23052FD992A87A19A04D5AFF /* Pods-Markdown-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Markdown-iOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Markdown-iOSTests/Pods-Markdown-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		4BC44B8B220923ED002D1B8B /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
+		4BC44B8D220925DB002D1B8B /* DefaultHeading3Transformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultHeading3Transformer.swift; sourceTree = "<group>"; };
+		4BC44B8F22092691002D1B8B /* DefaultHeading4Transformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultHeading4Transformer.swift; sourceTree = "<group>"; };
+		4BC44B91220926AF002D1B8B /* DefaultHeading5Transformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultHeading5Transformer.swift; sourceTree = "<group>"; };
+		4BC44B93220926CA002D1B8B /* DefaultHeading6Transformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultHeading6Transformer.swift; sourceTree = "<group>"; };
 		8814FAB42201AB9900646CD1 /* MarkdownEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownEditorView.swift; sourceTree = "<group>"; };
 		8814FAB62201AE3B00646CD1 /* MarkdownRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownRenderer.swift; sourceTree = "<group>"; };
 		8814FABA2202E08900646CD1 /* DefaultBoldTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBoldTransformer.swift; sourceTree = "<group>"; };
@@ -152,6 +162,7 @@
 				88637FC722015B0F0045FBA9 /* DefaultStyle */,
 				888602142201932200A6307C /* Markdown */,
 				8814FAC3220432E000646CD1 /* PDFPrinter.swift */,
+				4BC44B8B220923ED002D1B8B /* Consts.swift */,
 				88637F90220149180045FBA9 /* AppDelegate.swift */,
 				88637F972201491A0045FBA9 /* Assets.xcassets */,
 				88637F992201491A0045FBA9 /* LaunchScreen.storyboard */,
@@ -185,6 +196,10 @@
 				88637FCE22015D7E0045FBA9 /* DefaultTransformerFactory.swift */,
 				88637FCA22015C6F0045FBA9 /* DefaultHeading1Transformer.swift */,
 				88637FCC22015CAB0045FBA9 /* DefaultHeading2Transformer.swift */,
+				4BC44B8D220925DB002D1B8B /* DefaultHeading3Transformer.swift */,
+				4BC44B8F22092691002D1B8B /* DefaultHeading4Transformer.swift */,
+				4BC44B91220926AF002D1B8B /* DefaultHeading5Transformer.swift */,
+				4BC44B93220926CA002D1B8B /* DefaultHeading6Transformer.swift */,
 				8814FABA2202E08900646CD1 /* DefaultBoldTransformer.swift */,
 				8814FABC2202F39800646CD1 /* DefaultItalicTransformer.swift */,
 			);
@@ -472,13 +487,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BC44B9022092691002D1B8B /* DefaultHeading4Transformer.swift in Sources */,
 				88637FC2220152260045FBA9 /* MarkdownSyntax.swift in Sources */,
 				88637FCB22015C6F0045FBA9 /* DefaultHeading1Transformer.swift in Sources */,
 				8814FABD2202F39800646CD1 /* DefaultItalicTransformer.swift in Sources */,
+				4BC44B92220926AF002D1B8B /* DefaultHeading5Transformer.swift in Sources */,
 				88637FC922015B2B0045FBA9 /* DefaultMarkdownStyle.swift in Sources */,
 				8814FAB52201AB9900646CD1 /* MarkdownEditorView.swift in Sources */,
+				4BC44B94220926CA002D1B8B /* DefaultHeading6Transformer.swift in Sources */,
 				8814FABB2202E08900646CD1 /* DefaultBoldTransformer.swift in Sources */,
+				4BC44B8C220923ED002D1B8B /* Consts.swift in Sources */,
 				88637FC4220153CF0045FBA9 /* MarkdownStyle.swift in Sources */,
+				4BC44B8E220925DB002D1B8B /* DefaultHeading3Transformer.swift in Sources */,
 				88637FCD22015CAB0045FBA9 /* DefaultHeading2Transformer.swift in Sources */,
 				88637FD122015DA30045FBA9 /* MarkdownTransformerFactory.swift in Sources */,
 				8814FAC4220432E100646CD1 /* PDFPrinter.swift in Sources */,
