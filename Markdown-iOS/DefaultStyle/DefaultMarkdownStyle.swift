@@ -3,18 +3,18 @@ import UIKit
 struct DefaultMarkdownStyle: MarkdownStyle {
     var blockTransformers: [BlockTransformer] {
         var transformers = [BlockTransformer]()
-        let factory = DefaultTransformerFactory(style: self)
+        let factory = TransformerFactory()
         for blockSyntax in BlockSyntax.all {
-            transformers.append(factory.create(blockSyntax: blockSyntax))
+            transformers.append(factory.create(blockSyntax: blockSyntax, style: self))
         }
         return transformers
     }
 
     var inlineTransformers: [InlineTransformer] {
         var transformers = [InlineTransformer]()
-        let factory = DefaultTransformerFactory(style: self)
+        let factory = TransformerFactory()
         for inlineSyntax in InlineSyntax.all {
-            transformers.append(factory.create(inlineSyntax: inlineSyntax))
+            transformers.append(factory.create(inlineSyntax: inlineSyntax, style: self))
         }
         return transformers
     }

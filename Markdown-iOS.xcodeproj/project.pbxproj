@@ -27,7 +27,6 @@
 		88637FC4220153CF0045FBA9 /* MarkdownStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88637FC3220153CF0045FBA9 /* MarkdownStyle.swift */; };
 		88637FC6220153F30045FBA9 /* MarkdownTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88637FC5220153F30045FBA9 /* MarkdownTransformer.swift */; };
 		88637FC922015B2B0045FBA9 /* DefaultMarkdownStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88637FC822015B2B0045FBA9 /* DefaultMarkdownStyle.swift */; };
-		88637FCF22015D7E0045FBA9 /* DefaultTransformerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88637FCE22015D7E0045FBA9 /* DefaultTransformerFactory.swift */; };
 		88637FD122015DA30045FBA9 /* MarkdownTransformerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88637FD022015DA30045FBA9 /* MarkdownTransformerFactory.swift */; };
 		F0D5E3E6BDAD56AA09C9375D /* Pods_Markdown_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C753AD34DEB07B27614F2CC /* Pods_Markdown_iOS.framework */; };
 /* End PBXBuildFile section */
@@ -78,7 +77,6 @@
 		88637FC3220153CF0045FBA9 /* MarkdownStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownStyle.swift; sourceTree = "<group>"; };
 		88637FC5220153F30045FBA9 /* MarkdownTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownTransformer.swift; sourceTree = "<group>"; };
 		88637FC822015B2B0045FBA9 /* DefaultMarkdownStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMarkdownStyle.swift; sourceTree = "<group>"; };
-		88637FCE22015D7E0045FBA9 /* DefaultTransformerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTransformerFactory.swift; sourceTree = "<group>"; };
 		88637FD022015DA30045FBA9 /* MarkdownTransformerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownTransformerFactory.swift; sourceTree = "<group>"; };
 		96824E7046198498409E2AE4 /* Pods-Markdown-iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Markdown-iOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Markdown-iOSUITests/Pods-Markdown-iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9C753AD34DEB07B27614F2CC /* Pods_Markdown_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Markdown_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,7 +190,6 @@
 			isa = PBXGroup;
 			children = (
 				88637FC822015B2B0045FBA9 /* DefaultMarkdownStyle.swift */,
-				88637FCE22015D7E0045FBA9 /* DefaultTransformerFactory.swift */,
 				8814FABA2202E08900646CD1 /* DefaultBoldTransformer.swift */,
 				8814FABC2202F39800646CD1 /* DefaultItalicTransformer.swift */,
 			);
@@ -492,7 +489,6 @@
 				8814FAC4220432E100646CD1 /* PDFPrinter.swift in Sources */,
 				88637F91220149180045FBA9 /* AppDelegate.swift in Sources */,
 				88637FC6220153F30045FBA9 /* MarkdownTransformer.swift in Sources */,
-				88637FCF22015D7E0045FBA9 /* DefaultTransformerFactory.swift in Sources */,
 				8814FAB72201AE3B00646CD1 /* MarkdownRenderer.swift in Sources */,
 				8814FAC2220420C800646CD1 /* MarkdownEditorViewController.swift in Sources */,
 				8814FABF2202F46400646CD1 /* UIFont+MD.swift in Sources */,

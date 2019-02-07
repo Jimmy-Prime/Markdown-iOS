@@ -1,26 +1,28 @@
 import Foundation
 
 protocol MarkdownTransformerFactory {
-    init(style: MarkdownStyle)
-
-    var style: MarkdownStyle { get }
-
-    func create(blockSyntax: BlockSyntax) -> BlockTransformer
-    func create(inlineSyntax: InlineSyntax) -> InlineTransformer
+    func create(blockSyntax: BlockSyntax, style: MarkdownStyle) -> BlockTransformer
+    func create(inlineSyntax: InlineSyntax, style: MarkdownStyle) -> InlineTransformer
 }
 
-class BaseMarkdownTransformerFactory: MarkdownTransformerFactory {
-    let style: MarkdownStyle
-
-    required init(style: MarkdownStyle) {
-        self.style = style
+class TransformerFactory: MarkdownTransformerFactory {
+    func create(blockSyntax: BlockSyntax, style: MarkdownStyle) -> BlockTransformer {
+        switch blockSyntax {
+        case is HeadingSyntax:
+            return HeadingTransformer(syntax: blockSyntax, style: style)
+        default:
+            fatalError("unknown block syntax \(blockSyntax)")
+        }
     }
 
-    func create(blockSyntax: BlockSyntax) -> BlockTransformer {
-        fatalError("subclass should override create(blockSyntax:)")
-    }
-
-    func create(inlineSyntax: InlineSyntax) -> InlineTransformer {
-        fatalError("subclass should override create(inlineSyntax:)")
+    func create(inlineSyntax: InlineSyntax, style: MarkdownStyle) -> InlineTransformer {
+        switch inlineSyntax {
+        case is BoldSyntax:
+            return DefaultBoldTransformer(syntax: inlineSyntax, style: style)
+        case is ItalicSyntax:
+            return DefaultItalicTransformer(syntax: inlineSyntax, style: style)
+        default:
+            fatalError("unknown inline syntax \(inlineSyntax)")
+        }
     }
 }
