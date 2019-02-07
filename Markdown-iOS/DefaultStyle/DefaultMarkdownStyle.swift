@@ -28,18 +28,23 @@ struct DefaultMarkdownStyle: MarkdownStyle {
 
     func attributes(of syntax: MarkdownSyntax) -> [NSAttributedString.Key: Any] {
         switch syntax {
-        case is Heading1Syntax:
-            return [.font: UIFont.boldSystemFont(ofSize: 40)]
-        case is Heading2Syntax:
-            return [.font: UIFont.boldSystemFont(ofSize: 32)]
-        case is Heading3Syntax:
-            return [.font: UIFont.boldSystemFont(ofSize: 26)]
-        case is Heading4Syntax:
-            return [.font: UIFont.boldSystemFont(ofSize: 20)]
-        case is Heading5Syntax:
-            return [.font: UIFont.boldSystemFont(ofSize: 16)]
-        case is Heading6Syntax:
-            return [.font: UIFont.boldSystemFont(ofSize: 12)]
+        case let headingSyntax as HeadingSyntax:
+            switch headingSyntax.count {
+            case 1:
+                return [.font: UIFont.boldSystemFont(ofSize: 40)]
+            case 2:
+                return [.font: UIFont.boldSystemFont(ofSize: 32)]
+            case 3:
+                return [.font: UIFont.boldSystemFont(ofSize: 26)]
+            case 4:
+                return [.font: UIFont.boldSystemFont(ofSize: 20)]
+            case 5:
+                return [.font: UIFont.boldSystemFont(ofSize: 16)]
+            case 6:
+                return [.font: UIFont.boldSystemFont(ofSize: 12)]
+            default:
+                fatalError("Invalid count of HeadingSyntax: \(headingSyntax.count)")
+            }
         default: // looks like we just need attributes of BlockSyntax?
             fatalError("unknown syntax \(syntax)")
         }
