@@ -26,13 +26,10 @@ class BlockSyntax: MarkdownSyntax {
 class InlineSyntax: MarkdownSyntax {
     class var all: [InlineSyntax] { // order matters
         return [
+            LinkSyntax(),
             BoldSyntax(),
             ItalicSyntax()
         ]
-    }
-
-    func displayFont(referenceFont: UIFont? = nil) -> UIFont {
-        return .default
     }
 
     func displayString(from string: String, match: NSTextCheckingResult) -> String {
@@ -58,13 +55,21 @@ class HeadingSyntax: BlockSyntax {
 
 // MARK: - Inline Syntax
 
+class LinkSyntax: InlineSyntax {
+    override var regexPattern: String {
+        return "\\[(.*?)\\]\\((.*?)\\)"
+    }
+
+    override func displayString(from string: String, match: NSTextCheckingResult) -> String {
+        let matchedString = string.substring(in: match.range)
+        let rightBracketIndex = matchedString.firstIndex(of: "]")!
+        return String(matchedString[matchedString.index(after: matchedString.startIndex) ..< rightBracketIndex])
+    }
+}
+
 class BoldSyntax: InlineSyntax {
     override var regexPattern: String {
         return "\\*\\*([^\\*]+)\\*\\*"
-    }
-
-    override func displayFont(referenceFont: UIFont?) -> UIFont {
-        return referenceFont?.bold() ?? .default
     }
 
     override func displayString(from string: String, match: NSTextCheckingResult) -> String {
@@ -76,10 +81,6 @@ class BoldSyntax: InlineSyntax {
 class ItalicSyntax: InlineSyntax {
     override var regexPattern: String {
         return "\\*([^\\*]+)\\*"
-    }
-
-    override func displayFont(referenceFont: UIFont?) -> UIFont {
-        return referenceFont?.italic() ?? .default
     }
 
     override func displayString(from string: String, match: NSTextCheckingResult) -> String {

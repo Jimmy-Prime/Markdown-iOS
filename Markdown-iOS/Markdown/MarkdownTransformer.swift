@@ -17,7 +17,7 @@ protocol BlockTransformer: MarkdownTransformer {
 protocol InlineTransformer: MarkdownTransformer {
     var inlineSyntax: InlineSyntax { get }
 
-    func attributedString(of string: NSAttributedString) -> NSAttributedString
+    func attributedString(of attrString: NSAttributedString) -> NSAttributedString
 }
 
 class BaseMarkdownTransformer: MarkdownTransformer {
@@ -79,7 +79,7 @@ class BaseInlineTransformer: BaseMarkdownTransformer, InlineTransformer {
             let font = attrString.font(at: match.range.location + 1) // should use Swifty way to implement +1
             let replacingAttrString = NSAttributedString(
                 string: inlineSyntax.displayString(from: string, match: match),
-                attributes: [.font: inlineSyntax.displayFont(referenceFont: font)]
+                attributes: style.attributes(of: inlineSyntax, with: font)
             )
             mutalbeAttrString.replaceCharacters(in: match.range, with: replacingAttrString)
         }

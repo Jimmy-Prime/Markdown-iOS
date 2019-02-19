@@ -80,4 +80,8 @@ extension MarkdownEditorView: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         renderedTextView.attributedText = renderer.render(wholeText: textView.text)
     }
+
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        return textView == renderedTextView
+    }
 }

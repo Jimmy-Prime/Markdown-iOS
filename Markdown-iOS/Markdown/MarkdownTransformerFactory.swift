@@ -16,6 +16,11 @@ class TransformerFactory: MarkdownTransformerFactory {
     }
 
     func create(inlineSyntax: InlineSyntax, style: MarkdownStyle) -> InlineTransformer {
-        return BaseInlineTransformer(syntax: inlineSyntax, style: style)
+        switch inlineSyntax {
+        case is LinkSyntax:
+            return LinkTransformer(syntax: inlineSyntax, style: style)
+        default:
+            return BaseInlineTransformer(syntax: inlineSyntax, style: style)
+        }
     }
 }

@@ -26,8 +26,8 @@ struct DefaultMarkdownStyle: MarkdownStyle {
         ]
     }
 
-    func attributes(of syntax: MarkdownSyntax) -> [NSAttributedString.Key: Any] {
-        switch syntax {
+    func attributes(of blockSyntax: BlockSyntax) -> [NSAttributedString.Key: Any] {
+        switch blockSyntax {
         case let headingSyntax as HeadingSyntax:
             switch headingSyntax.count {
             case 1:
@@ -45,8 +45,26 @@ struct DefaultMarkdownStyle: MarkdownStyle {
             default:
                 fatalError("Invalid count of HeadingSyntax: \(headingSyntax.count)")
             }
-        default: // looks like we just need attributes of BlockSyntax?
-            fatalError("unknown syntax \(syntax)")
+        default:
+            fatalError("unknown BlockSyntax \(blockSyntax)")
+        }
+    }
+
+    func attributes(of inlineSyntax: InlineSyntax, with referenceFont: UIFont?) -> [NSAttributedString.Key: Any] {
+        switch inlineSyntax {
+        case is LinkSyntax:
+            return [
+                .font: referenceFont ?? .default,
+                .foregroundColor: UIColor.blue,
+                .underlineStyle: NSNumber(value: NSUnderlineStyle.single.rawValue),
+                .underlineColor: UIColor.blue
+            ]
+        case is BoldSyntax:
+            return [.font: referenceFont?.bold() ?? .default]
+        case is ItalicSyntax:
+            return [.font: referenceFont?.italic() ?? .default]
+        default:
+            fatalError("unknown InlineSyntax \(inlineSyntax)")
         }
     }
 }
