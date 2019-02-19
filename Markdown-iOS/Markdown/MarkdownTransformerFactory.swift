@@ -16,13 +16,6 @@ class TransformerFactory: MarkdownTransformerFactory {
     }
 
     func create(inlineSyntax: InlineSyntax, style: MarkdownStyle) -> InlineTransformer {
-        switch inlineSyntax {
-        case is BoldSyntax:
-            return DefaultBoldTransformer(syntax: inlineSyntax, style: style)
-        case is ItalicSyntax:
-            return DefaultItalicTransformer(syntax: inlineSyntax, style: style)
-        default:
-            fatalError("unknown inline syntax \(inlineSyntax)")
-        }
+        return BaseInlineTransformer(syntax: inlineSyntax, style: style)
     }
 }

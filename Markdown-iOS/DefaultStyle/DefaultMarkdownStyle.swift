@@ -19,7 +19,7 @@ struct DefaultMarkdownStyle: MarkdownStyle {
         return transformers
     }
 
-    var attributesOfHeader2Divider: [NSAttributedString.Key: Any] {
+    var attributesOfHeadingDivider: [NSAttributedString.Key: Any] {
         return [
             .strikethroughStyle: NSNumber(value: 2),
             .strikethroughColor: UIColor.lightGray

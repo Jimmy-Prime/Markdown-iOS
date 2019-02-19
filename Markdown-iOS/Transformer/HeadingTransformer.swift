@@ -17,18 +17,13 @@ class HeadingTransformer: BaseBlockTransformer {
         let startIndex = string.index(string.startIndex, offsetBy: headingSyntax.count)
         let endIndex = string.endIndex
         let content = String(string[startIndex..<endIndex]).trimmingCharacters(in: .whitespaces)
-        return NSAttributedString(string: content, attributes: style.attributes(of: blockSyntax))
-    }
-}
+        let attrContent = NSMutableAttributedString(string: content, attributes: style.attributes(of: headingSyntax))
 
-class Heading2Transformer: HeadingTransformer {
-    override func attributedString(of string: String) -> NSAttributedString {
-        let startIndex = string.index(string.startIndex, offsetBy: 2)
-        let endIndex = string.endIndex
-        let content = String(string[startIndex..<endIndex]).trimmingCharacters(in: .whitespaces)
-        let h2 = NSMutableAttributedString(string: content, attributes: style.attributes(of: syntax))
-        let divider = NSAttributedString(string: "\n\u{00a0}\n", attributes: style.attributesOfHeader2Divider)
-        h2.append(divider)
-        return h2
+        if headingSyntax.hasDivider {
+            let underLine = NSAttributedString(string: "\n\u{00a0}\n", attributes: style.attributesOfHeadingDivider)
+            attrContent.append(underLine)
+        }
+
+        return attrContent
     }
 }

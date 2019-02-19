@@ -71,6 +71,19 @@ class BaseInlineTransformer: BaseMarkdownTransformer, InlineTransformer {
     }
 
     func attributedString(of attrString: NSAttributedString) -> NSAttributedString {
-        fatalError("subclass should override attributedString(of:)")
+        let string = attrString.string
+        let matches = NSRegularExpression.match(pattern: syntax.regexPattern, in: string)
+
+        let mutalbeAttrString = NSMutableAttributedString(attributedString: attrString)
+        for match in matches.reversed() {
+            let font = attrString.font(at: match.range.location + 1) // should use Swifty way to implement +1
+            let replacingAttrString = NSAttributedString(
+                string: inlineSyntax.displayString(from: string, match: match),
+                attributes: [.font: inlineSyntax.displayFont(referenceFont: font)]
+            )
+            mutalbeAttrString.replaceCharacters(in: match.range, with: replacingAttrString)
+        }
+
+        return mutalbeAttrString
     }
 }
