@@ -46,6 +46,7 @@ class MarkdownEditorViewController: UIViewController {
         let pdfData = printer.print(attributedText: editorView.renderedText)
 
         let activityViewController = UIActivityViewController(activityItems: [pdfData], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = view
         present(activityViewController, animated: true, completion: nil)
     }
 }
