@@ -77,13 +77,17 @@ class BaseInlineTransformer: BaseMarkdownTransformer, InlineTransformer {
         let mutalbeAttrString = NSMutableAttributedString(attributedString: attrString)
         for match in matches.reversed() {
             let font = attrString.font(at: match.range.location + 1) // should use Swifty way to implement +1
-            let replacingAttrString = NSAttributedString(
-                string: inlineSyntax.displayString(from: string, match: match),
-                attributes: style.attributes(of: inlineSyntax, with: font)
-            )
+
+            let displayString = inlineSyntax.displayString(from: string, match: match)
+            var attributes = style.attributes(of: inlineSyntax, with: font)
+            modify(attributes: &attributes, in: string, with: match)
+
+            let replacingAttrString = NSAttributedString(string: displayString, attributes: attributes)
             mutalbeAttrString.replaceCharacters(in: match.range, with: replacingAttrString)
         }
 
         return mutalbeAttrString
     }
+
+    func modify(attributes: inout [NSAttributedString.Key: Any], in string: String, with match: NSTextCheckingResult) {}
 }
