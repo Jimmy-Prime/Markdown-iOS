@@ -8,8 +8,10 @@ protocol MarkdownTransformerFactory {
 class TransformerFactory: MarkdownTransformerFactory {
     func create(blockSyntax: BlockSyntax, style: MarkdownStyle) -> BlockTransformer {
         switch blockSyntax {
-        case is HeadingSyntax:
-            return HeadingTransformer(syntax: blockSyntax, style: style)
+        case let headingSyntax as HeadingSyntax:
+            return HeadingTransformer(headingSyntax: headingSyntax, style: style)
+        case is UnorderedListSyntax:
+            return UnorderedListTransformer(syntax: blockSyntax, style: style)
         default:
             fatalError("unknown block syntax \(blockSyntax)")
         }

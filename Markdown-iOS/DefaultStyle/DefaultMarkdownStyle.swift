@@ -45,6 +45,8 @@ struct DefaultMarkdownStyle: MarkdownStyle {
             default:
                 fatalError("Invalid count of HeadingSyntax: \(headingSyntax.count)")
             }
+        case is UnorderedListSyntax:
+            return [.font: UIFont.default]
         default:
             fatalError("unknown BlockSyntax \(blockSyntax)")
         }
@@ -66,5 +68,9 @@ struct DefaultMarkdownStyle: MarkdownStyle {
         default:
             fatalError("unknown InlineSyntax \(inlineSyntax)")
         }
+    }
+
+    var symbolOfUnorderedListSyntax: String {
+        return "•"
     }
 }

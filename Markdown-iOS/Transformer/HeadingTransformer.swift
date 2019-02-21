@@ -3,20 +3,20 @@ import Foundation
 class HeadingTransformer: BaseBlockTransformer {
     let headingSyntax: HeadingSyntax
 
-    required init(syntax: MarkdownSyntax, style: MarkdownStyle) {
-        guard let headingSyntax = syntax as? HeadingSyntax else {
-            fatalError("HeadingTransformer init with non HeadingSyntax: \(syntax)")
-        }
-
+    init(headingSyntax: HeadingSyntax, style: MarkdownStyle) {
         self.headingSyntax = headingSyntax
+        super.init(syntax: headingSyntax, style: style)
+    }
 
-        super.init(syntax: syntax, style: style)
+    @available(*, unavailable)
+    required init(syntax: MarkdownSyntax, style: MarkdownStyle) {
+        fatalError("Not available")
     }
 
     override func attributedString(of string: String) -> NSAttributedString {
         let startIndex = string.index(string.startIndex, offsetBy: headingSyntax.count)
         let endIndex = string.endIndex
-        let content = String(string[startIndex..<endIndex]).trimmingCharacters(in: .whitespaces)
+        let content = String(string[startIndex ..< endIndex]).trimmingCharacters(in: .whitespaces)
         let attrContent = NSMutableAttributedString(string: content, attributes: style.attributes(of: headingSyntax))
 
         if headingSyntax.hasDivider {
