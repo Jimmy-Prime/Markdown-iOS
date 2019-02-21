@@ -27,6 +27,7 @@
 		88637FC922015B2B0045FBA9 /* DefaultMarkdownStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88637FC822015B2B0045FBA9 /* DefaultMarkdownStyle.swift */; };
 		88637FD122015DA30045FBA9 /* MarkdownTransformerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88637FD022015DA30045FBA9 /* MarkdownTransformerFactory.swift */; };
 		88B74B32221EAA6400563323 /* UnorderedListTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B74B31221EAA6400563323 /* UnorderedListTransformer.swift */; };
+		88B74B34221EB57D00563323 /* OrderedListTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B74B33221EB57D00563323 /* OrderedListTransformer.swift */; };
 		88CE977A221BDB4400361938 /* NSRegularExpression+MD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CE9779221BDB4400361938 /* NSRegularExpression+MD.swift */; };
 		88CE977C221BDEB200361938 /* NSAttributedString+MD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CE977B221BDEB200361938 /* NSAttributedString+MD.swift */; };
 		88CE977E221BDF9400361938 /* String+MD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CE977D221BDF9400361938 /* String+MD.swift */; };
@@ -80,6 +81,7 @@
 		88637FC822015B2B0045FBA9 /* DefaultMarkdownStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMarkdownStyle.swift; sourceTree = "<group>"; };
 		88637FD022015DA30045FBA9 /* MarkdownTransformerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownTransformerFactory.swift; sourceTree = "<group>"; };
 		88B74B31221EAA6400563323 /* UnorderedListTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnorderedListTransformer.swift; sourceTree = "<group>"; };
+		88B74B33221EB57D00563323 /* OrderedListTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedListTransformer.swift; sourceTree = "<group>"; };
 		88CE9779221BDB4400361938 /* NSRegularExpression+MD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+MD.swift"; sourceTree = "<group>"; };
 		88CE977B221BDEB200361938 /* NSAttributedString+MD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+MD.swift"; sourceTree = "<group>"; };
 		88CE977D221BDF9400361938 /* String+MD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD.swift"; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				4BC44B95220C318D002D1B8B /* HeadingTransformer.swift */,
 				88CE9781221C07E000361938 /* LinkTransformer.swift */,
 				88B74B31221EAA6400563323 /* UnorderedListTransformer.swift */,
+				88B74B33221EB57D00563323 /* OrderedListTransformer.swift */,
 			);
 			path = Transformer;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88B74B34221EB57D00563323 /* OrderedListTransformer.swift in Sources */,
 				88637FC2220152260045FBA9 /* MarkdownSyntax.swift in Sources */,
 				88637FC922015B2B0045FBA9 /* DefaultMarkdownStyle.swift in Sources */,
 				8814FAB52201AB9900646CD1 /* MarkdownEditorView.swift in Sources */,

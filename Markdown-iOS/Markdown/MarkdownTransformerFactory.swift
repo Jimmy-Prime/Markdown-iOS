@@ -12,6 +12,8 @@ class TransformerFactory: MarkdownTransformerFactory {
             return HeadingTransformer(headingSyntax: headingSyntax, style: style)
         case is UnorderedListSyntax:
             return UnorderedListTransformer(syntax: blockSyntax, style: style)
+        case is OrderedListSyntax:
+            return OrderedListTransformer(syntax: blockSyntax, style: style)
         default:
             fatalError("unknown block syntax \(blockSyntax)")
         }

@@ -47,6 +47,8 @@ struct DefaultMarkdownStyle: MarkdownStyle {
             }
         case is UnorderedListSyntax:
             return [.font: UIFont.default]
+        case is OrderedListSyntax:
+            return [.font: UIFont.default]
         default:
             fatalError("unknown BlockSyntax \(blockSyntax)")
         }

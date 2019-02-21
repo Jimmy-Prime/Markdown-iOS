@@ -19,7 +19,8 @@ class BlockSyntax: MarkdownSyntax {
             HeadingSyntax(count: 4),
             HeadingSyntax(count: 5),
             HeadingSyntax(count: 6),
-            UnorderedListSyntax()
+            UnorderedListSyntax(),
+            OrderedListSyntax()
         ]
     }
 }
@@ -57,6 +58,12 @@ class HeadingSyntax: BlockSyntax {
 class UnorderedListSyntax: BlockSyntax {
     override var regexPattern: String {
         return "^(\\+|\\-|\\*)[ \\t]+(.*)"
+    }
+}
+
+class OrderedListSyntax: BlockSyntax {
+    override var regexPattern: String {
+        return "^(\\d+).[ \\t]+(.*)"
     }
 }
 
