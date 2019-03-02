@@ -13,6 +13,9 @@ line_length:
   ignores_comments: true
   warning: 150
 
+disabled_rules:
+  - discarded_notification_center_observer
+
 opt_in_rules:
   - anyobject_protocol
   - array_init

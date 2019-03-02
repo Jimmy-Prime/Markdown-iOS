@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2855ECB3C49BC10C64898D98 /* Pods_Markdown_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B79C752370638CBEBD42CC78 /* Pods_Markdown_iOSUITests.framework */; };
+		4BC10FE9222ADD710002FB04 /* NotificationCenter+MD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC10FE8222ADD710002FB04 /* NotificationCenter+MD.swift */; };
+		4BC1C5F32227F27B004F182D /* KeyboardNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC1C5F22227F27B004F182D /* KeyboardNotificationHandler.swift */; };
 		4BC44B8C220923ED002D1B8B /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC44B8B220923ED002D1B8B /* Consts.swift */; };
 		4BC44B96220C318D002D1B8B /* HeadingTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC44B95220C318D002D1B8B /* HeadingTransformer.swift */; };
 		784261982D735AC2F76ABA76 /* Pods_Markdown_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B502D48878A16B7623B1F1B /* Pods_Markdown_iOSTests.framework */; };
@@ -57,6 +59,8 @@
 		0B502D48878A16B7623B1F1B /* Pods_Markdown_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Markdown_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E733CAC01E00784B1CAC525 /* Pods-Markdown-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Markdown-iOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Markdown-iOSTests/Pods-Markdown-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		23052FD992A87A19A04D5AFF /* Pods-Markdown-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Markdown-iOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Markdown-iOSTests/Pods-Markdown-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		4BC10FE8222ADD710002FB04 /* NotificationCenter+MD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+MD.swift"; sourceTree = "<group>"; };
+		4BC1C5F22227F27B004F182D /* KeyboardNotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotificationHandler.swift; sourceTree = "<group>"; };
 		4BC44B8B220923ED002D1B8B /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
 		4BC44B95220C318D002D1B8B /* HeadingTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingTransformer.swift; sourceTree = "<group>"; };
 		8814FAB42201AB9900646CD1 /* MarkdownEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownEditorView.swift; sourceTree = "<group>"; };
@@ -121,6 +125,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4BC10FEA222AE25F0002FB04 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				4BC1C5F22227F27B004F182D /* KeyboardNotificationHandler.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		4BC44B97220C3193002D1B8B /* Transformer */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +147,7 @@
 		8814FAC02202F60300646CD1 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				4BC10FE8222ADD710002FB04 /* NotificationCenter+MD.swift */,
 				88CE977B221BDEB200361938 /* NSAttributedString+MD.swift */,
 				88CE9779221BDB4400361938 /* NSRegularExpression+MD.swift */,
 				88CE977D221BDF9400361938 /* String+MD.swift */,
@@ -168,6 +181,7 @@
 		88637F8F220149180045FBA9 /* Markdown-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				4BC10FEA222AE25F0002FB04 /* Protocol */,
 				8814FAC02202F60300646CD1 /* Extension */,
 				88637FC722015B0F0045FBA9 /* DefaultStyle */,
 				888602142201932200A6307C /* Markdown */,
@@ -499,6 +513,7 @@
 				4BC44B96220C318D002D1B8B /* HeadingTransformer.swift in Sources */,
 				88637FC4220153CF0045FBA9 /* MarkdownStyle.swift in Sources */,
 				88637FD122015DA30045FBA9 /* MarkdownTransformerFactory.swift in Sources */,
+				4BC1C5F32227F27B004F182D /* KeyboardNotificationHandler.swift in Sources */,
 				88CE977C221BDEB200361938 /* NSAttributedString+MD.swift in Sources */,
 				8814FAC4220432E100646CD1 /* PDFPrinter.swift in Sources */,
 				88637F91220149180045FBA9 /* AppDelegate.swift in Sources */,
@@ -507,6 +522,7 @@
 				88B74B32221EAA6400563323 /* UnorderedListTransformer.swift in Sources */,
 				8814FAC2220420C800646CD1 /* MarkdownEditorViewController.swift in Sources */,
 				8814FABF2202F46400646CD1 /* UIFont+MD.swift in Sources */,
+				4BC10FE9222ADD710002FB04 /* NotificationCenter+MD.swift in Sources */,
 				88CE977E221BDF9400361938 /* String+MD.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
