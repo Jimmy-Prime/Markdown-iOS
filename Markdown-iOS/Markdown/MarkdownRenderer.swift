@@ -68,8 +68,8 @@ class MarkdownRenderer {
         case orderedListText(number: Int, text: String)
 
         case plainText(text: String)
-        case plainTextPrecedingSpace(text: String, count: Int)
-        case plainTextPrecedingNewLine(text: String)
+        case plainTextTrailingSpace(text: String, count: Int)
+        case plainTextTrailingNewLine(text: String)
     }
 
     var style: MarkdownStyle
@@ -183,21 +183,21 @@ class MarkdownRenderer {
 
             case .plainText(let text):
                 if char.isNewline {
-                    state = .plainTextPrecedingNewLine(text: text)
+                    state = .plainTextTrailingNewLine(text: text)
                 } else if char.isWhitespace {
-                    state = .plainTextPrecedingSpace(text: text, count: 1)
+                    state = .plainTextTrailingSpace(text: text, count: 1)
                 } else {
                     state = .plainText(text: text + String(char))
                 }
-            case .plainTextPrecedingSpace(let text, let count):
+            case .plainTextTrailingSpace(let text, let count):
                 if char.isNewline {
                     if count >= 2 {
-                        state = .plainTextPrecedingNewLine(text: text + "\n")
+                        state = .plainTextTrailingNewLine(text: text + "\n")
                     } else {
-                        state = .plainTextPrecedingNewLine(text: text)
+                        state = .plainTextTrailingNewLine(text: text)
                     }
                 } else if char.isWhitespace {
-                    state = .plainTextPrecedingSpace(text: text, count: count + 1)
+                    state = .plainTextTrailingSpace(text: text, count: count + 1)
                 } else {
                     if count >= 2 {
                         state = .plainText(text: text + "\n" + String(char))
@@ -205,7 +205,7 @@ class MarkdownRenderer {
                         state = .plainText(text: text + " " + String(char))
                     }
                 }
-            case .plainTextPrecedingNewLine(let text):
+            case .plainTextTrailingNewLine(let text):
                 if char.isNewline {
                     state = .beginOfParagraph
                     components.append(PlainText(text: text))
@@ -226,7 +226,7 @@ class MarkdownRenderer {
             components.append(Heading(level: level, text: text))
         case .orderedListText(let number, let text):
             components.append(OrderedList(number: number, text: text))
-        case .plainText(let text), .plainTextPrecedingSpace(let text, _), .plainTextPrecedingNewLine(let text):
+        case .plainText(let text), .plainTextTrailingSpace(let text, _), .plainTextTrailingNewLine(let text):
             components.append(PlainText(text: text))
         default:
             break
