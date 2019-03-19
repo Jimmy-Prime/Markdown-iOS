@@ -68,6 +68,8 @@ class MarkdownRenderer {
         case orderedListText(number: Int, text: String)
 
         case plainText(text: String)
+        case plainTextPrecedingSpace(text: String, count: Int)
+        case plainTextPrecedingNewLine(text: String)
     }
 
     var style: MarkdownStyle
@@ -92,6 +94,7 @@ class MarkdownRenderer {
     }
 
     // swiftlint:disable cyclomatic_complexity
+    // swiftlint:disable function_body_length
     private func buildComponents(from text: String) -> [Component] {
         var components = [Component]()
 
@@ -180,10 +183,40 @@ class MarkdownRenderer {
 
             case .plainText(let text):
                 if char.isNewline {
-                    state = .beginOfParagraph
-                    components.append(PlainText(text: text))
+                    state = .plainTextPrecedingNewLine(text: text)
+                } else if char.isWhitespace {
+                    state = .plainTextPrecedingSpace(text: text, count: 1)
                 } else {
                     state = .plainText(text: text + String(char))
+                }
+            case .plainTextPrecedingSpace(let text, let count):
+                if char.isNewline {
+                    if count >= 2 {
+                        state = .plainTextPrecedingNewLine(text: text + "\n")
+                    } else {
+                        state = .plainTextPrecedingNewLine(text: text)
+                    }
+                } else if char.isWhitespace {
+                    state = .plainTextPrecedingSpace(text: text, count: count + 1)
+                } else {
+                    if count >= 2 {
+                        state = .plainText(text: text + "\n" + String(char))
+                    } else {
+                        state = .plainText(text: text + " " + String(char))
+                    }
+                }
+            case .plainTextPrecedingNewLine(let text):
+                if char.isNewline {
+                    state = .beginOfParagraph
+                    components.append(PlainText(text: text))
+                } else if char.isWhitespace {
+                    // do nothing
+                } else {
+                    if !CharacterSet(charactersIn: String(text.last!)).isDisjoint(with: .whitespacesAndNewlines) {
+                        state = .plainText(text: text + String(char))
+                    } else {
+                        state = .plainText(text: text + " " + String(char))
+                    }
                 }
             }
         }
@@ -193,7 +226,7 @@ class MarkdownRenderer {
             components.append(Heading(level: level, text: text))
         case .orderedListText(let number, let text):
             components.append(OrderedList(number: number, text: text))
-        case .plainText(let text):
+        case .plainText(let text), .plainTextPrecedingSpace(let text, _), .plainTextPrecedingNewLine(let text):
             components.append(PlainText(text: text))
         default:
             break
