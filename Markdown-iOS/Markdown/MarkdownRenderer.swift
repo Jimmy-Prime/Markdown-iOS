@@ -1,55 +1,148 @@
-import Foundation
+import UIKit
 
-struct MarkdownRenderer {
+protocol Component {
+    func build() -> NSAttributedString
+}
+
+struct Heading: Component {
+    let level: Int
+    let text: String
+
+    private var fontSize: CGFloat {
+        switch level {
+        case 1:
+            return 40
+        case 2:
+            return 32
+        case 3:
+            return 26
+        case 4:
+            return 20
+        case 5:
+            return 16
+        case 6:
+            return 12
+        default:
+            return 0
+        }
+    }
+
+    func build() -> NSAttributedString {
+        return NSAttributedString(
+            string: text,
+            attributes: [
+                .font: UIFont.systemFont(ofSize: fontSize)
+            ]
+        )
+    }
+}
+
+struct PlainText: Component {
+    let text: String
+
+    func build() -> NSAttributedString {
+        return NSAttributedString(string: text)
+    }
+}
+
+class MarkdownRenderer {
+    private enum State {
+        case beginOfParagraph
+
+        case heading(level: Int)
+        case headingPrecedingSpace(level: Int)
+        case headingText(level: Int, text: String)
+
+        case plainText(text: String)
+    }
+
     var style: MarkdownStyle
-    private var blockTransformers: [BlockTransformer]
-    private var inlineTransformers: [InlineTransformer]
 
     init(style: MarkdownStyle) {
         self.style = style
-        blockTransformers = style.blockTransformers
-        inlineTransformers = style.inlineTransformers
     }
 
     func render(wholeText: String?) -> NSAttributedString? {
-        guard let wholeText = wholeText else {
+        guard let wholeText = wholeText, !wholeText.isEmpty else {
             return nil
         }
 
-        let attrWholeText = NSMutableAttributedString()
+        let attributedString = NSMutableAttributedString()
 
-        for line in wholeText.components(separatedBy: .newlines) {
-            let trimmedLine = line.trimmingCharacters(in: .whitespaces)
-            guard !trimmedLine.isEmpty else {
-                continue
-            }
-
-            attrWholeText.append(inlineTransformLine(blockTransformLine(trimmedLine)))
-
-            attrWholeText.append(NSAttributedString(string: "\n\n"))
+        for component in buildComponents(from: wholeText) {
+            attributedString.append(component.build())
+            attributedString.append(NSAttributedString(string: "\n"))
         }
 
-        return attrWholeText
+        return attributedString
     }
 
-    private func blockTransformLine(_ line: String) -> NSAttributedString {
-        var attrLine: NSAttributedString?
+    private func buildComponents(from text: String) -> [Component] {
+        var components = [Component]()
 
-        for transformer in blockTransformers {
-            if transformer.isStringValid(line) {
-                attrLine = transformer.attributedString(of: line)
-                break
+        var state = State.beginOfParagraph
+        for char in text {
+            switch state {
+            case .beginOfParagraph:
+                if char == "#" {
+                    state = .heading(level: 1)
+                } else if char.isNewline {
+                    state = .beginOfParagraph
+                } else {
+                    state = .plainText(text: String(char))
+                }
+
+            case .heading(let level):
+                if char == "#" {
+                    if level == 6 {
+                        state = .plainText(text: "#######")
+                    } else {
+                        state = .heading(level: level + 1)
+                    }
+                } else if char.isWhitespace {
+                    state = .headingPrecedingSpace(level: level)
+                } else if char.isNewline {
+                    state = .beginOfParagraph
+                } else {
+                    state = .headingText(level: level, text: String(char))
+                }
+            case .headingPrecedingSpace(let level):
+                if char == "#" {
+                    state = .headingText(level: level, text: "#")
+                } else if char.isWhitespace {
+                    state = .headingPrecedingSpace(level: level)
+                } else if char.isNewline {
+                    state = .beginOfParagraph
+                } else {
+                    state = .headingText(level: level, text: String(char))
+                }
+            case .headingText(let level, let text):
+                if char.isNewline {
+                    state = .beginOfParagraph
+                    components.append(Heading(level: level, text: text))
+                } else {
+                    state = .headingText(level: level, text: text + String(char))
+                }
+
+            case .plainText(let text):
+                if char.isNewline {
+                    state = .beginOfParagraph
+                    components.append(PlainText(text: text))
+                } else {
+                    state = .plainText(text: text + String(char))
+                }
             }
         }
 
-        return attrLine ?? NSAttributedString(string: line)
-    }
-
-    private func inlineTransformLine(_ attrLine: NSAttributedString) -> NSAttributedString {
-        var resultLine = attrLine
-        for transformer in inlineTransformers {
-            resultLine = transformer.attributedString(of: resultLine)
+        switch state {
+        case .headingText(let level, let text):
+            components.append(Heading(level: level, text: text))
+        case .plainText(let text):
+            components.append(PlainText(text: text))
+        default:
+            break
         }
-        return resultLine
+
+        return components
     }
 }

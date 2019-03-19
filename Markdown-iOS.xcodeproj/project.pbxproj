@@ -18,6 +18,8 @@
 		8814FABF2202F46400646CD1 /* UIFont+MD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814FABE2202F46400646CD1 /* UIFont+MD.swift */; };
 		8814FAC2220420C800646CD1 /* MarkdownEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814FAC1220420C800646CD1 /* MarkdownEditorViewController.swift */; };
 		8814FAC4220432E100646CD1 /* PDFPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814FAC3220432E000646CD1 /* PDFPrinter.swift */; };
+		883B7B1B2240AC32002E23D0 /* Alamofire.md in Resources */ = {isa = PBXBuildFile; fileRef = 883B7B1A2240AC32002E23D0 /* Alamofire.md */; };
+		883B7B1D2240AEB3002E23D0 /* SnapKit.md in Resources */ = {isa = PBXBuildFile; fileRef = 883B7B1C2240AEB3002E23D0 /* SnapKit.md */; };
 		88637F91220149180045FBA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88637F90220149180045FBA9 /* AppDelegate.swift */; };
 		88637F982201491A0045FBA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88637F972201491A0045FBA9 /* Assets.xcassets */; };
 		88637F9B2201491A0045FBA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88637F992201491A0045FBA9 /* LaunchScreen.storyboard */; };
@@ -68,6 +70,8 @@
 		8814FABE2202F46400646CD1 /* UIFont+MD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+MD.swift"; sourceTree = "<group>"; };
 		8814FAC1220420C800646CD1 /* MarkdownEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownEditorViewController.swift; sourceTree = "<group>"; };
 		8814FAC3220432E000646CD1 /* PDFPrinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPrinter.swift; sourceTree = "<group>"; };
+		883B7B1A2240AC32002E23D0 /* Alamofire.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Alamofire.md; sourceTree = "<group>"; };
+		883B7B1C2240AEB3002E23D0 /* SnapKit.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = SnapKit.md; sourceTree = "<group>"; };
 		88637F8D220149180045FBA9 /* Markdown-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Markdown-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88637F90220149180045FBA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88637F972201491A0045FBA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -156,6 +160,15 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		883B7B192240ABF0002E23D0 /* TestResources */ = {
+			isa = PBXGroup;
+			children = (
+				883B7B1A2240AC32002E23D0 /* Alamofire.md */,
+				883B7B1C2240AEB3002E23D0 /* SnapKit.md */,
+			);
+			path = TestResources;
+			sourceTree = "<group>";
+		};
 		88637F84220149180045FBA9 = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +194,7 @@
 		88637F8F220149180045FBA9 /* Markdown-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				883B7B192240ABF0002E23D0 /* TestResources */,
 				4BC10FEA222AE25F0002FB04 /* Protocol */,
 				8814FAC02202F60300646CD1 /* Extension */,
 				88637FC722015B0F0045FBA9 /* DefaultStyle */,
@@ -370,6 +384,8 @@
 			files = (
 				88637F9B2201491A0045FBA9 /* LaunchScreen.storyboard in Resources */,
 				88637F982201491A0045FBA9 /* Assets.xcassets in Resources */,
+				883B7B1B2240AC32002E23D0 /* Alamofire.md in Resources */,
+				883B7B1D2240AEB3002E23D0 /* SnapKit.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

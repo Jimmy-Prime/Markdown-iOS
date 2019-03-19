@@ -74,6 +74,16 @@ class MarkdownEditorView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    func setTestFile(name: String) {
+        guard let path = Bundle.main.path(forResource: name, ofType: "md"),
+            let content = try? String(contentsOfFile: path) else {
+            return
+        }
+
+        textView.text = content
+        textViewDidChange(textView)
+    }
 }
 
 extension MarkdownEditorView: UITextViewDelegate {

@@ -6,8 +6,8 @@ class MarkdownEditorViewController: UIViewController, KeyboardNotificationObserv
     private let renderer: MarkdownRenderer
     private var style: MarkdownStyle
 
-    private let toolbar = UIView()
-    private var toolbarBottomConstraint: Constraint!
+//    private let toolbar = UIView()
+//    private var toolbarBottomConstraint: Constraint!
 
     private let printer: PDFPrinter
 
@@ -33,7 +33,7 @@ class MarkdownEditorViewController: UIViewController, KeyboardNotificationObserv
 
         buildPrintButton()
 
-        buildToolbar()
+//        buildToolbar()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -41,11 +41,13 @@ class MarkdownEditorViewController: UIViewController, KeyboardNotificationObserv
     }
 
     @objc private func print() {
-        let pdfData = printer.print(attributedText: editorView.renderedText)
+//        let pdfData = printer.print(attributedText: editorView.renderedText)
+//
+//        let activityViewController = UIActivityViewController(activityItems: [pdfData], applicationActivities: nil)
+//        activityViewController.popoverPresentationController?.sourceView = view
+//        present(activityViewController, animated: true, completion: nil)
 
-        let activityViewController = UIActivityViewController(activityItems: [pdfData], applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = view
-        present(activityViewController, animated: true, completion: nil)
+        editorView.setTestFile(name: "SnapKit")
     }
 
     private func buildPrintButton() {
@@ -61,26 +63,26 @@ class MarkdownEditorViewController: UIViewController, KeyboardNotificationObserv
         }
     }
 
-    private func buildToolbar() {
-        toolbar.backgroundColor = .gray
-        view.addSubview(toolbar)
-        toolbar.snp.makeConstraints { (make) in
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(44)
-            toolbarBottomConstraint = make.bottom.equalTo(view.safeAreaLayoutGuide).constraint
-        }
-    }
+//    private func buildToolbar() {
+//        toolbar.backgroundColor = .gray
+//        view.addSubview(toolbar)
+//        toolbar.snp.makeConstraints { (make) in
+//            make.leading.trailing.equalToSuperview()
+//            make.height.equalTo(44)
+//            toolbarBottomConstraint = make.bottom.equalTo(view.safeAreaLayoutGuide).constraint
+//        }
+//    }
 
     // MARK: - KeyboardNotificationObserver
 
-    func keyboardWillShowAnimation(endFrame: CGRect) -> [UIView] {
-        let inset = UIScreen.main.bounds.size.height - endFrame.origin.y - view.safeAreaInsets.bottom
-        toolbarBottomConstraint.update(inset: inset)
-        return [view]
-    }
-
-    func keyboardWillHideAnimation() -> [UIView] {
-        toolbarBottomConstraint.update(inset: 0)
-        return [view]
-    }
+//    func keyboardWillShowAnimation(endFrame: CGRect) -> [UIView] {
+//        let inset = UIScreen.main.bounds.size.height - endFrame.origin.y - view.safeAreaInsets.bottom
+//        toolbarBottomConstraint.update(inset: inset)
+//        return [view]
+//    }
+//
+//    func keyboardWillHideAnimation() -> [UIView] {
+//        toolbarBottomConstraint.update(inset: 0)
+//        return [view]
+//    }
 }
