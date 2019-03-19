@@ -37,6 +37,15 @@ struct Heading: Component {
     }
 }
 
+struct OrderedList: Component {
+    let number: Int
+    let text: String
+
+    func build() -> NSAttributedString {
+        return NSAttributedString(string: "\(number). \(text)")
+    }
+}
+
 struct PlainText: Component {
     let text: String
 
@@ -52,6 +61,11 @@ class MarkdownRenderer {
         case heading(level: Int)
         case headingPrecedingSpace(level: Int)
         case headingText(level: Int, text: String)
+
+        case orderedList(number: Int, rawText: String)
+        case orderedListPrecedingDot(number: Int, rawText: String)
+        case orderedListPrecedingDotAndSpace(number: Int, rawText: String)
+        case orderedListText(number: Int, text: String)
 
         case plainText(text: String)
     }
@@ -77,6 +91,7 @@ class MarkdownRenderer {
         return attributedString
     }
 
+    // swiftlint:disable cyclomatic_complexity
     private func buildComponents(from text: String) -> [Component] {
         var components = [Component]()
 
@@ -86,6 +101,8 @@ class MarkdownRenderer {
             case .beginOfParagraph:
                 if char == "#" {
                     state = .heading(level: 1)
+                } else if char.isNumber {
+                    state = .orderedList(number: 1, rawText: String(char))
                 } else if char.isNewline {
                     state = .beginOfParagraph
                 } else {
@@ -124,6 +141,43 @@ class MarkdownRenderer {
                     state = .headingText(level: level, text: text + String(char))
                 }
 
+            case .orderedList(let number, let rawText):
+                if char.isNewline {
+                    state = .beginOfParagraph
+                    components.append(PlainText(text: rawText))
+                } else if char.isNumber {
+                    state = .orderedList(number: number, rawText: rawText + String(char))
+                } else if char == "." {
+                    state = .orderedListPrecedingDot(number: number, rawText: rawText + String(char))
+                } else {
+                    state = .plainText(text: rawText + String(char))
+                }
+            case .orderedListPrecedingDot(let number, let rawText):
+                if char.isNewline {
+                    state = .beginOfParagraph
+                    components.append(PlainText(text: rawText))
+                } else if char.isWhitespace {
+                    state = .orderedListPrecedingDotAndSpace(number: number, rawText: rawText + String(char))
+                } else {
+                    state = .plainText(text: rawText + String(char))
+                }
+            case .orderedListPrecedingDotAndSpace(let number, let rawText):
+                if char.isNewline {
+                    state = .beginOfParagraph
+                    components.append(PlainText(text: rawText))
+                } else if char.isWhitespace {
+                    state = .orderedListPrecedingDotAndSpace(number: number, rawText: rawText + String(char))
+                } else {
+                    state = .orderedListText(number: number, text: String(char))
+                }
+            case .orderedListText(let number, let text):
+                if char.isNewline {
+                    state = .orderedList(number: number + 1, rawText: "")
+                    components.append(OrderedList(number: number, text: text))
+                } else {
+                    state = .orderedListText(number: number, text: text + String(char))
+                }
+
             case .plainText(let text):
                 if char.isNewline {
                     state = .beginOfParagraph
@@ -137,6 +191,8 @@ class MarkdownRenderer {
         switch state {
         case .headingText(let level, let text):
             components.append(Heading(level: level, text: text))
+        case .orderedListText(let number, let text):
+            components.append(OrderedList(number: number, text: text))
         case .plainText(let text):
             components.append(PlainText(text: text))
         default:
